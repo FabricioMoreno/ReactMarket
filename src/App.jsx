@@ -2,22 +2,24 @@ import React from "react"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
 import Card from "./components/Card"
-//IMAGES
-import atlethic from "./images/athletic.png"
-
+import data from "./data"
 
 function App() {
+  const cards = data.map(card=>{
+    return <Card 
+    key={card.id}
+    {...card}
+    />
+  })
+
   return(
     <>
       <Navbar/>
       <Hero/>
-      <Card img={atlethic}
-      rating={5.0}
-      amountReview={6}
-      country="USA"
-      description="Life lessons with Katie Zaferes"
-      price= {136}
-      />
+      <section className="cards-list">
+        {cards}
+      </section>
+      
 
     </>
   )
